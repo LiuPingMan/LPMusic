@@ -9,11 +9,9 @@ class LPRequest {
         method,
         data,
         success: function (res) {
-          resolve(res)
+          resolve(res.data)
         },
-        fail: function (err) {
-          reject(err)
-        }
+        fail: reject
       })
     })
   }
@@ -27,7 +25,6 @@ class LPRequest {
   }
   post(config) {
     const { url, data } = config
-
     return this.request({
       url,
       method: 'POST',

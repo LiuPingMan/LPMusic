@@ -17,7 +17,7 @@ Page({
       offset: 0,
       limit: 10
     }).then(res => {
-      this.setData({topMVs:res.data.data})
+      this.setData({topMVs:res.data})
     })
     
   }
