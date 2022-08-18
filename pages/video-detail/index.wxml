@@ -1,0 +1,22 @@
+<!--pages/video-detail/index.wxml-->
+<view>
+  <video class="video" src="{{mvURLInfo.url}}" autoplay loop></video>
+  <view class="info">
+    <view class="title">{{mvDetail.name}}</view>
+    <view class="desc">{{mvDetail.artistName}} - {{mvDetail.alias[0]}}</view>
+    <view class="other">
+      <text class="play-count"></text>
+      <text class="publish-time">{{mvDetail.publishTime}}</text>
+    </view>
+  </view>
+  <view>
+    <view class="recommend">
+      <view class="title">
+        推荐视频
+      </view>
+      <block wx:for="{{relatedVideos}}">
+        <video-item-v2 item="{{item}}" wx:key="id"></video-item-v2>
+      </block>
+    </view>
+  </view>
+</view>

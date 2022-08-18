@@ -6,3 +6,24 @@ export function getTopMV(params) {
     params
   })
 }
+
+export function getMVURL(params) {
+  return lpRequest.get({
+    url: '/mv/url',
+    params
+  })
+}
+
+export function getMVDetail(params) {
+  return lpRequest.get({
+    url: '/mv/detail',
+    params
+  })
+}
+
+export function getRelatedVideo(params) {
+  return lpRequest.get({
+    url: '/related/allvideo',
+    params
+  })
+}
