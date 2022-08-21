@@ -1,2 +1,13 @@
 <!--pages/home-music/index.wxml-->
-<vant-search value="2"></vant-search>
+<van-search background="#ffffff" shape="round" placeholder="搜索您喜欢的音乐" bind:click-input="handleSearchClick"></van-search>
+
+<swiper class="swiper" style="height: {{swiperHeight}}px" indicator-dots autoplay circular>
+  <block wx:for="{{banners}}" wx:key="bannerId">
+    <swiper-item class="swiper-item">
+      <image class="swiper-image" src="{{item.pic}}" mode="widthFix" bindload="handleSwiperImageLoaded"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="recommend-song">
+  <area-header title="推荐歌曲"></area-header>
+</view>

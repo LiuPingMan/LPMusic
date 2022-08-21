@@ -1,12 +1,16 @@
-// components/video-item-v2/index.js
+// components/area-header/index.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    item: {
-      type: Object,
-      value: {}
+    title: {
+      type: String,
+      value: '默认标题'
+    },
+    rightText: {
+      type: String,
+      value: '默认文本'
     }
   },
 

@@ -1,19 +1,41 @@
 // pages/home-music/index.js
+import { getBanners } from '../../service/api_music'
+import queryRect from '../../utils/query-rect'
+import throttle from '../../utils/throttle'
+
+const throttleQueryRect = throttle(queryRect,100)
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    banners: [],
+    swiperHeight: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.getBannersData()
   },
+
+  getBannersData() {
+    getBanners({
+      type: 2
+    }).then(res => {
+      this.setData({ banners: res.banners })
+    })
+  },
+
+  handleSwiperImageLoaded() {
+    throttleQueryRect('.swiper-image').then(res => {
+      this.setData({ swiperHeight: res.height })
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
